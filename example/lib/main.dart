@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sms_retriever/sms_retriever.dart';
+import 'package:sms_retriever_neo/sms_retriever_neo.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,11 +12,18 @@ class _MyAppState extends State<MyApp> {
   String _smsCode = "";
   bool isListening = false;
 
+  @override
+  initState() {
+    super.initState();
+  }
+
   getCode(String sms) {
     if (sms != null) {
       final intRegex = RegExp(r'\d+', multiLine: true);
       final code = intRegex.allMatches(sms).first.group(0);
-      return code;
+      setState(() {
+        _smsCode = code;
+      });
     }
     return "NO SMS";
   }
@@ -44,13 +51,23 @@ class _MyAppState extends State<MyApp> {
                   'Press the button below to start\nlistening for an incoming SMS'),
               new RaisedButton(
                 onPressed: () async {
-                  isListening = true;
-                  setState(() {});
-                  String smsCode = await SmsRetriever.startListening();
-                  _smsCode = getCode(smsCode);
-                  isListening = false;
-                  setState(() {});
-                  SmsRetriever.stopListening();
+                  if (isListening) {
+                    isListening = false;
+                    setState(() {});
+                    SmsRetriever.stopListening();
+                    return;
+                  }
+                  SmsRetriever.startListening(
+                    onSmsReceived: getCode,
+                    onTimeout: () {
+                      SmsRetriever.startListening(
+                        onSmsReceived: getCode,
+                      );
+                    }
+                  );
+                  setState(() {
+                     isListening = true;
+                  });
                 },
                 child: Text(isListening ? "STOP" : "START"),
               )

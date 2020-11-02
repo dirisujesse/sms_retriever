@@ -1,20 +1,32 @@
-# sms_retriever
+# sms_retriever_neo
 
-A new Flutter plugin to retrieve the SMS on Android using SMS Retrieval API
+This is a fork and rewrite of the sms_retriever plugin, adding androidx compatibility and modifications to the codebase.
+
+
+This plugin allows the user retrieve the SMS on Android using SMS Retrieval API
 
 ## Getting Started
-
-To retrieve a app signature. It requires by the SMS
+To retrieve a app signature. The app signature generated should be in the body of the sms sent to the device.
 ```dart
-String appSignature = await SmsRetriever.getAppSignature();
+String appSignature = await smsRetriever.getAppSignature();
 ```
 To start listening for an incoming SMS
 ```dart
-String smsCode = await SmsRetriever.startListening();
+await smsRetriever.startListening(
+    onSmsReceived: (sms) {
+        // this is fired when the sms is received
+        print(sms)
+    },
+    onTimeout: () {
+        // this is fired in 5 minutes after we start listening for sms events
+        // you may restart ths listener here
+        smsRetriever.startListening();
+    }
+);
 ```
 Stop listening after getting the SMS
 ```dart
-SmsRetriever.stopListening();
+smsRetriever.stopListening();
 ```
 
 Generate appSignature for keystore file

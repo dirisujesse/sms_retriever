@@ -8,11 +8,11 @@ This plugin allows the user retrieve the SMS on Android using SMS Retrieval API
 ## Getting Started
 To retrieve a app signature. The app signature generated should be in the body of the sms sent to the device.
 ```dart
-String appSignature = await smsRetriever.getAppSignature();
+String appSignature = await SmsRetriever.getAppSignature();
 ```
 To start listening for an incoming SMS
 ```dart
-await smsRetriever.startListening(
+await SmsRetriever.startListening(
     onSmsReceived: (sms) {
         // this is fired when the sms is received
         print(sms)
@@ -26,7 +26,7 @@ await smsRetriever.startListening(
 ```
 Stop listening after getting the SMS
 ```dart
-smsRetriever.stopListening();
+SmsRetriever.stopListening();
 ```
 
 Generate appSignature for keystore file

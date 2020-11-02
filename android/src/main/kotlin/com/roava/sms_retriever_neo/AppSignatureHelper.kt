@@ -1,4 +1,4 @@
-package com.debut.sms_retriever
+package com.roava.sms_retriever_neo
 
 import android.content.Context
 import android.content.ContextWrapper

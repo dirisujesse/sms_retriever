@@ -1,4 +1,4 @@
-package com.debut.sms_retriever_example
+package com.roava.sms_retriever_neo_example
 
 import android.os.Bundle
 

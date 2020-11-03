@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
                 builder: (context, data) {
                   return Text('SIGNATURE: ${data.data}');
                 },
-                future: SmsRetriever.getAppSignature(),
+                future: SmsRetrieverNeo.getAppSignature(),
               ),
               Text('SMS CODE: $_smsCode \n'),
               Text(
@@ -54,13 +54,13 @@ class _MyAppState extends State<MyApp> {
                   if (isListening) {
                     isListening = false;
                     setState(() {});
-                    SmsRetriever.stopListening();
+                    SmsRetrieverNeo.stopListening();
                     return;
                   }
-                  SmsRetriever.startListening(
+                  SmsRetrieverNeo.startListening(
                     onSmsReceived: getCode,
                     onTimeout: () {
-                      SmsRetriever.startListening(
+                      SmsRetrieverNeo.startListening(
                         onSmsReceived: getCode,
                       );
                     }

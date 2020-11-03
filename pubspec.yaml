@@ -2,7 +2,7 @@ name: sms_retriever_neo
 description: A new Flutter plugin to retrieve the SMS on Android using SMS Retrieval API
 version: 0.0.2
 author: Lakhwinder Singh <lakhwinder.singh@debutinfotech.com>
-homepage: https://github.com/debutdeveloper/sms_retriever
+homepage: https://github.com/dirisujesse/sms_retriever
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -25,8 +25,10 @@ flutter:
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
   plugin:
-    androidPackage: com.roava.sms_retriever_neo
-    pluginClass: SmsRetrieverNeoPlugin
+    platforms:
+      android:
+        package: com.roava.sms_retriever_neo
+        pluginClass: SmsRetrieverNeoPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

@@ -2,8 +2,12 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:sms_retriever_neo/schemas/typedefs.dart';
 
-class SmsRetriever {
-  static const MethodChannel _channel = const MethodChannel('sms_retriever');
+class SmsRetrieverNeo {
+  static const MethodChannel _channel = const MethodChannel('sms_retriever_neo');
+
+  static Future<int> get platformVersion async {
+    return 42;
+  }
 
   static _handleCalls({
     OnResult<String> onSmsReceived,

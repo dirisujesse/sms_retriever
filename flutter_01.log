@@ -1,0 +1,76 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter create --org com.roava .
+
+## exception
+
+_CastError: type 'bool' is not a subtype of type 'String' in type cast
+
+```
+#0      Template.render.renderPath (package:flutter_tools/src/template.dart:160:57)
+#1      Template.render.<anonymous closure> (package:flutter_tools/src/template.dart:188:53)
+#2      _LinkedHashMapMixin.forEach (dart:collection-patch/compact_hash.dart:377:8)
+#3      Template.render (package:flutter_tools/src/template.dart:182:24)
+#4      CreateCommand._renderTemplate (package:flutter_tools/src/commands/create.dart:781:21)
+<asynchronous suspension>
+#5      CreateCommand._generatePlugin (package:flutter_tools/src/commands/create.dart:602:29)
+#6      CreateCommand.runCommand (package:flutter_tools/src/commands/create.dart:444:37)
+#7      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:860:18)
+#8      _rootRunUnary (dart:async/zone.dart:1198:47)
+#9      _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#10     _FutureListener.handleValue (dart:async/future_impl.dart:143:18)
+#11     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:696:45)
+#12     Future._propagateToListeners (dart:async/future_impl.dart:725:32)
+#13     Future._completeWithValue (dart:async/future_impl.dart:529:5)
+#14     Future._asyncCompleteWithValue.<anonymous closure> (dart:async/future_impl.dart:567:7)
+#15     _rootRun (dart:async/zone.dart:1190:13)
+#16     _CustomZone.run (dart:async/zone.dart:1093:19)
+#17     _CustomZone.runGuarded (dart:async/zone.dart:997:7)
+#18     _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:1037:23)
+#19     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#20     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#21     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:118:13)
+#22     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:169:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 1.20.4, on Mac OS X 10.15.7 19H2, locale en-GB)
+    • Flutter version 1.20.4 at /Users/Dirisu/Documents/flutter
+    • Framework revision fba99f6cf9 (7 weeks ago), 2020-09-14 15:32:52 -0700
+    • Engine revision d1bc06f032
+    • Dart version 2.9.2
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 29.0.3)
+    • Android SDK at /Users/Dirisu/Library/Android/sdk
+    • Platform android-29, build-tools 29.0.3
+    • Java binary at: /Applications/Android
+      Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 12.0.1)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 12.0.1, Build version 12A7300
+    • CocoaPods version 1.9.3
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin version 46.0.2
+    • Dart plugin version 193.7361
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+
+[✓] VS Code (version 1.50.1)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.16.0
+
+[✓] Connected device (1 available)
+    • Android SDK built for x86 (mobile) • emulator-5554 • android-x86 • Android 10 (API 29)
+      (emulator)
+
+• No issues found!
+```

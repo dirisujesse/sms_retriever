@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: androidx.fragment:fragment:1.0.0@aar" type="AndroidModuleLibraryType">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f026de2581589f6f678d0848d558bcfe/fragment-1.0.0/jars/classes.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

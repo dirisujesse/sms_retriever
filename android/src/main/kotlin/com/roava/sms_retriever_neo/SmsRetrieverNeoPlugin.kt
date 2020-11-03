@@ -21,7 +21,7 @@ class SmsRetrieverNeoPlugin(private val registrar: Registrar) : MethodCallHandle
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar) {
-            val channel = MethodChannel(registrar.messenger(), "sms_retriever")
+            val channel = MethodChannel(registrar.messenger(), "sms_retriever_neo")
             channel.setMethodCallHandler(SmsRetrieverNeoPlugin(registrar))
         }
     }
@@ -78,7 +78,7 @@ class SmsRetrieverNeoPlugin(private val registrar: Registrar) : MethodCallHandle
         if (SmsRetriever.SMS_RETRIEVED_ACTION == intent.action) {
             val extras = intent.extras
             val status = extras!!.get(SmsRetriever.EXTRA_STATUS) as Status
-            val channel = MethodChannel(registrar.messenger(), "sms_retriever")
+            val channel = MethodChannel(registrar.messenger(), "sms_retriever_neo")
             when (status.statusCode) {
                 CommonStatusCodes.SUCCESS -> {
                     // Get SMS message contents
